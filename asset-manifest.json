@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/FundamentalsOfPython/static/css/main.666497b5.css",
+    "main.js": "/FundamentalsOfPython/static/js/main.1f392a8a.js",
+    "static/js/453.d9749a7d.chunk.js": "/FundamentalsOfPython/static/js/453.d9749a7d.chunk.js",
+    "static/media/logo.svg": "/FundamentalsOfPython/static/media/logo.4298525c028749eb4fa154f8f5bd1931.svg",
+    "index.html": "/FundamentalsOfPython/index.html",
+    "main.666497b5.css.map": "/FundamentalsOfPython/static/css/main.666497b5.css.map",
+    "main.1f392a8a.js.map": "/FundamentalsOfPython/static/js/main.1f392a8a.js.map",
+    "453.d9749a7d.chunk.js.map": "/FundamentalsOfPython/static/js/453.d9749a7d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.666497b5.css",
+    "static/js/main.1f392a8a.js"
+  ]
+}
