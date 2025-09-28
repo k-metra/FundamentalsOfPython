@@ -571,7 +571,7 @@ else:
             </p>
 
           <Codeblock>
-{`async def check_even(num):
+{`def check_even(num):
   remainder = num % 2
   if remainder == 0:
     return True
@@ -622,7 +622,7 @@ else:
               We can also shorten this line of code and make it more efficient like so:
             </p>
             <Codeblock>
-{`async def check_even(num):
+{`def check_even(num):
   if (num % 2) == 0:
     return True
   return False
@@ -679,22 +679,263 @@ else:
               Do you get why? Because we have to check if what the function returns is equals
               to false.
             </p>
-            <h1>That's all for now!</h1>
             <p>
-              That's all for tonight! It's 10:29 PM on a Saturday as I'm writing this. I started
-              around 8:00 PM. If that's not bad then I don't know what is. Thanks for reading
-              my guide!
+              Let's write another program, this time it will take input
+              from the user  and check if the number is positive, negative, or zero.
+              To do this, we'll make use of the <span className="code-inline">input()</span>
+              function.
+            </p>
+            <h2>The Input() Function</h2>
+            <p>
+              Much like the <span className="code-inline">print()</span> function,
+              the <span className="code-inline">input()</span> function is a built-in
+              function in Python. The <span className="code-inline">input()</span>
+              function allows you to take input from the user. When the function is called,
+              it waits for the user to type something and press enter. The input is then
+              returned as a string, which can be stored in a variable.
+            </p>
+            <Codeblock>
+{`user_input = input("Enter something: ")
+print("You entered:", user_input)`}
+            </Codeblock>
+            <p>
+              Output:
+            </p>
+            <Terminalblock>
+              Enter something: Hello, World!<br/>
+              You entered: Hello, World!
+            </Terminalblock>
+            <p>
+              Notice how the input function has a string argument? This string is
+              displayed as a prompt to the user, indicating that they should enter
+              something. The input function then waits for the user to type something
+              and press enter. The input is then returned as a string and stored in
+              the variable <span className="code-inline">user_input</span>.
             </p>
             <p>
-              The guide doesn't end here. I will update it bi-weekly with new information
-              and add more features to this page (such as the ability to easily navigate
-              between sections, so you don't have to scroll painstakingly).
+              Let's use the input function to take a number from the user and check if
+              it is positive, negative, or zero.
+            </p>
+            <Codeblock>
+{`number = input("Enter a number: ")
+
+if number > 0:
+  print("The number is positive.")
+elif number < 0:
+  print("The number is negative.")
+else:
+  print("The number is zero.")`}
+            </Codeblock>
+            <p>Then we run the code...</p>
+            <Terminalblock>
+{`ERROR!
+Traceback (most recent call last):
+  File "<main.py>", line 3, in <module>
+TypeError: '>' not supported between instances of 'str' and 'int'`}
+            </Terminalblock>
+            <p>
+              ..That's not right, why'd it error? Let's analyze the error message.
             </p>
             <p>
-              If you have any suggestions or ideas you'd like me to tackle in the next update,
-              feel free to contact me 
-              on <a href="https://www.facebook.com/m.trakurt/">Facebook</a> or e-mail me 
-              via <a>metrakurt@gmail.com</a>!
+              The error message returns a TypeError, which means it is something to do
+              with a data type or two. In this example, it is telling us that the
+              greater than operator <span className="code-inline">&gt;</span> is not
+              supported between instances of 'str' and 'int'. This means that we are
+              trying to compare a string (str) with an integer (int), which is not
+              allowed in Python.
+            </p>
+            <p>
+              The input() function will always return the user input as a string, so, to
+              fix this, we perform something called <span className="bold">type casting</span>.
+              Type casting is the process of converting a value from one data type to another.
+              In this case, we need to convert the string returned by the input() function
+              to an integer so that we can compare it with other integers. We can do this
+              using the <span className="code-inline">int()</span> function, which converts
+              a string to an integer.
+            </p>
+            <Codeblock>
+{`number = input("Enter a number: ")
+number = int(number) # converting the input into an integer`}
+            </Codeblock>
+            <p>
+              Now, if we run the code again...
+            </p>
+            <Terminalblock>
+{`Enter a number: -5
+The number is negative.`}
+            </Terminalblock>
+            <p>
+              Now it runs! Great job on fixing the error!
+            </p>
+            <p>
+              Much like print() and input(), the int() function is built into Python, used
+              for converting values into other data types. There are several other
+              type casting functions in Python, such as float() for converting to a float,
+              str() for converting to a string, and bool() for converting to a boolean.
+            </p>
+            <p>
+              Don't know what a 'float' is? It's a data type that represents
+              decimal numbers. For example, 3.14 is a float, while 3 is an integer.
+              You can do math with floats just like you can with integers. In other
+              programming languages, floats are sometimes called 'doubles'.
+            </p>
+            <p>
+              Let's apply what we've learned so far and write a program that takes a 
+              username and password for input and checks if they are correct.
+            </p>
+            <p>
+              We first start by declaring two variables that will hold the correct 
+              credentials:
+            </p>
+            <Codeblock>
+{`correct_username = "admin"
+correct_password = "password123"`}
+            </Codeblock>
+            <p>
+              Then, we take input from the user for their username and password:
+            </p>
+            <Codeblock>
+{`username = input("Enter your username: ")
+password = input("Enter your password: ")`}
+            </Codeblock>
+            <p>
+              Then, we use an if-elif-else statement to check if the username and password
+              are correct:
+            </p>
+            <Codeblock>
+{`if username == correct_username and password == correct_password:
+  print("Log-in successful.")
+else:
+  print("Invalid username or password.")`}
+            </Codeblock>
+            <p>
+              Noticed something new? We used a new 
+              operator: <span className="code-inline">and</span>. What this operator
+              does is that it tells Python to check if both conditions are true.
+              In our code, the if-statement will only pass if both the username and
+              password are correct.
+            </p>
+            <p>
+              This is what your code would look like if you did everything correctly:
+            </p>
+            <Codeblock>
+{`correct_username = "admin"
+correct_password = "password123"
+
+username = input("Enter username: ")
+password = input("Enter password: ")
+
+if username == correct_username and password == correct_password:
+  print("Log-in successful.")
+else:
+  print("Invalid username or password.")`}
+            </Codeblock>
+            <p>Output:</p>
+            <Terminalblock>
+{`Enter username: admin
+Enter password: password123
+Log-in successful.`}
+            </Terminalblock>
+            <p>Output 2: </p>
+            <Terminalblock>
+{`Enter username: admin
+Enter password: wrongpassword
+Invalid username or password.`}
+            </Terminalblock>
+            <p>
+              And, voila! You've made a really simple login system! If you happen to struggle
+              understanding the code, just try breaking it down into English:
+            </p>
+            <p className="italic">
+              We have two variables, correct_password and correct_username. We ask the user for
+              their username and password, then we check if the username they enter is the same
+              as the correct username, AND the password they enter is the same as the correct
+              password. If it is? Print "Log-in successful". If not,
+              print "Invalid username or password."
+            </p>
+            <p>
+              Apart from breaking it down into English, the best way to understand the code is 
+              to play around with it as well: figure out what this and that does, change up
+              some stuff and see what happens. For example: what happens if you replace the 'and'
+              operator with 'or'?
+            </p>
+            <p>
+              ..Guessed yet?
+            </p>
+            <p>
+              Replacing the 'and' operator with the 'or' operator will tell Python that only
+              one of two conditions need to be met. So, if the username is correct but the
+              password is incorrect, it will still 
+              print <span className='code-inline'>Log-in successful.</span>. The 'and' operator
+              makes it so that the if-statement passes only if both conditions are true.
+            </p>
+            <h1>String Concatenation</h1>
+            <p>
+              Let's take a look at a very integral part of Python: String Concatenation.
+              In its very core definition, concatenation is the action of linking things
+              together. In programming, string concatenation is the process of
+              combining two or more strings together. In Python, we can concatenate
+              strings using the plus operator <span className="code-inline">+</span>, just like
+              2 + 2.
+            </p>
+            <Codeblock>
+{`first_name = "John"
+last_name = "Doe"
+full_name = John + " " + Doe
+
+print(full_name)`}
+            </Codeblock>
+            <Terminalblock>
+John Doe
+            </Terminalblock>
+            <p>
+              And if we combine this with user input:
+            </p>
+            <Codeblock>
+{`first_name = input("Enter your first name: ")
+last_name = input("Enter your last name: ")
+full_name = first_name + " " + last_name
+print("Your full name is: " + full_name)`}
+            </Codeblock>
+            <Terminalblock>
+{`Enter your first name: Kurt
+Enter your last name: Metra
+Your full name is: Kurt Metra`}
+            </Terminalblock>
+            <p>
+              But if we try to do this concatenation with integers:
+            </p>
+            <Codeblock>
+{`age = 18
+
+print("Your age is " + age)`}
+            </Codeblock>
+            <Terminalblock>
+{`ERROR!
+Traceback (most recent call last):
+  File "<main.py>", line 3, in <module>
+TypeError: can only concatenate str (not "int") to str`}
+            </Terminalblock>
+            <p>
+              Know why? Because of the data type difference. You can only concatenate 
+              two strings together. If you try to concatenate a string and an integer,
+              then it errors due to the incompatibility.
+            </p>
+            <p>
+              To fix that, we type-cast again, this time with 
+              the <span className='code-inline'>str()</span> method.
+            </p>
+            <Codeblock>
+{`age = 18
+
+print("Your age is " + str(age)) # str(age)`}
+            </Codeblock>
+            <Terminalblock>
+Your age is 18
+            </Terminalblock>
+            <p>
+              Just like how we use int() to convert a string to an integer, we use str() to
+              convert an integer to a string. Are you getting it yet?
             </p>
         </section>
       </div>
